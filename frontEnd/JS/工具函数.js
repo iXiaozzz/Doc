@@ -57,6 +57,28 @@ function debounce (func, wait = 50, immediate = true) {
   }
 }
 /**
+ * 函数节流方法
+ * @param Function func 延时调用函数
+ * @param Number wait 延迟多长时间
+ * @param Number atLeast 至少多长时间触发一次
+ * @return Function 延迟执行的方法
+ */
+function throttle (func, wait, atLeast) {
+  let timer = null, previous = null
+  return function () {
+    let now = +new Date()
+    previous = previous || now
+    if (atleast && now - previous > atLeast) {
+      func()
+    } else {
+      timer && clearTimeout(timer)
+      timer = setTimeout(function () {
+        func()
+      }, wait)
+    }
+  }
+}
+/**
  * 深度扁平化
  * @param  arr 
  */
