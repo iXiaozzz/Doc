@@ -25,6 +25,7 @@ Function.prototype.myBind = function (context) {
   if (typeof this !== 'function') {
     throw new TypeError('Error')
   }
+  context = context || window
   let _this = this
   let args = [...arguments].splice(1)
   return function F () {

@@ -72,7 +72,7 @@ function throttle (func, wait, atLeast) {
       func()
     } else {
       timer && clearTimeout(timer)
-      timer = setTimeout(function () {
+      timer = setTimeout(() => {
         func()
       }, wait)
     }
